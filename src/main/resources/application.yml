@@ -1,0 +1,9 @@
+
+spring:
+  application:
+    name: cool-spider
+
+logging:
+  level:
+    root:
+      info
