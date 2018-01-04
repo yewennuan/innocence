@@ -18,8 +18,8 @@ public class GithubRepoPageProcessorSpiderTest {
     @Autowired
     private GithubRepoPageProcessorTest githubRepoPageProcessorTest;
 
-    @PostConstruct
-    public void start(){
-        Spider.create(githubRepoPageProcessorTest).addUrl("https://github.com/code4craft").thread(5).run();
-    }
+//    @PostConstruct
+//    public void start(){
+//        Spider.create(githubRepoPageProcessorTest).addUrl("https://github.com/code4craft").thread(5).run();
+//    }
 }

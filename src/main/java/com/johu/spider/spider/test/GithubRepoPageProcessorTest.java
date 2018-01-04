@@ -23,7 +23,7 @@ public class GithubRepoPageProcessorTest implements PageProcessor {
         page.addTargetRequests(page.getHtml().links().regex("(https://github\\.com/[\\w\\-])").all());
 
         page.putField("author", page.getUrl().regex("https://github\\.com/(\\w+)/.*").toString());
-        page.putField("name", page.getHtml().xpath("//h1[@class='entry-title public']/strong/a/text()").toString());
+        page.putField("name", page.getHtml().xpath("//div[@class='commit-tease js-details-container Details']/span[@class='commit-author-section']/a[@class='user-mention']/text()").toString());
         if (page.getResultItems().get("name")==null){
             //skip this page
             page.setSkip(true);

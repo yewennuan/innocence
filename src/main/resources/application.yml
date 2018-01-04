@@ -2,8 +2,21 @@
 spring:
   application:
     name: cool-spider
+  datasource:
+      name: metadata
+      initialize: false
+      url: jdbc:mysql://10.10.100.20:3306/metadata?useUnicode=true&characterEncoding=utf8&useSSL=false&autoReconnect=true
+      username: root
+      password: 123456
+      driver-class-name: com.mysql.jdbc.Driver
 
 logging:
   level:
     root:
       info
+
+innocence:
+  treasures:
+    location: /Users/johu/Desktop/treasures
+    direction:
+    entry:
