@@ -18,5 +18,5 @@ logging:
 innocence:
   treasures:
     location: /Users/johu/Desktop/treasures
-    direction:
-    entry:
+    direction: localhost
+    entry: 1087
