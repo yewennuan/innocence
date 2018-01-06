@@ -1,10 +1,8 @@
-package com.johu.spider.spider.test;
+package com.johu.spider.spider.spider.processor;
 
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import us.codecraft.webmagic.Page;
 import us.codecraft.webmagic.Site;
-import us.codecraft.webmagic.Spider;
 import us.codecraft.webmagic.processor.PageProcessor;
 
 /**
@@ -13,7 +11,7 @@ import us.codecraft.webmagic.processor.PageProcessor;
  */
 
 @Component
-public class GithubRepoPageProcessorTest implements PageProcessor {
+public class Porn91PageProcessor implements PageProcessor {
 
     private Site site = Site.me().setRetryTimes(3).setSleepTime(1000).setTimeOut(10000);
 
