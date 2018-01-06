@@ -13,11 +13,16 @@ import java.util.Date;
 public class Porn91 {
     private Long id;
 
+    private String preUrl;
+
+
     private String url;
 
     private String title;
 
     private Integer status;// 0就绪，1处理中，2完成
+
+    private String duration;
 
     private Date beginTime;
 

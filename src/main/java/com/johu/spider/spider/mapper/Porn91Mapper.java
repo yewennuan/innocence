@@ -15,6 +15,7 @@ public interface Porn91Mapper {
     @Select("SELECT * FROM tb_91porn WHERE is_deleted = 0")
     @Results({
             @Result(property = "beginTime",  column = "begin_time"),
+            @Result(property = "preUrl",  column = "pre_url"),
             @Result(property = "endTime", column = "end_time"),
             @Result(property = "resetTimes", column = "reset_times"),
             @Result(property = "isDeleted", column = "is_deleted"),
@@ -32,12 +33,17 @@ public interface Porn91Mapper {
     @Update("UPDATE tb_91porn SET status=2,end_time = now() WHERE id=#{id}")
     void finishDownload(Long id);
 
-    @Insert("INSERT INTO tb_91porn(url, title, remark) VALUES (#{url},#{title},#{remark})")
+    @Insert("INSERT INTO tb_91porn(pre_url, title, duration) VALUES (#{preUrl},#{title},#{duration})")
     void insert(Porn91 porn91);
+
+    @Update("UPDATE tb_91porn SET url=#{url} WHERE id=#{id}")
+    void preDownload(Porn91 porn91);
+
 
     @Select("SELECT * FROM tb_91porn WHERE status=0 AND is_deleted=0 limit 1")
     @Results({
             @Result(property = "beginTime",  column = "begin_time"),
+            @Result(property = "preUrl",  column = "pre_url"),
             @Result(property = "endTime", column = "end_time"),
             @Result(property = "resetTimes", column = "reset_times"),
             @Result(property = "isDeleted", column = "is_deleted"),

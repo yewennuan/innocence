@@ -17,7 +17,7 @@ import java.util.concurrent.CompletableFuture;
  * 2018/1/6
  */
 
-@Component
+//@Component
 public class Download91PornVideoTask implements ApplicationRunner {
 
     @Autowired
