@@ -18,7 +18,7 @@ import java.util.concurrent.CompletableFuture;
  */
 
 //@Component
-public class Download91PornVideoTask implements ApplicationRunner {
+public class Download91PornCore implements ApplicationRunner {
 
     @Autowired
     private Porn91Mapper porn91Mapper;

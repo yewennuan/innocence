@@ -16,7 +16,7 @@ import java.util.Objects;
  */
 
 @Component
-public class Porn91PreDownloadPipeline implements Pipeline {
+public class Porn91InitPipeline1 implements Pipeline {
 
     @Autowired
     private Porn91Mapper porn91Mapper;

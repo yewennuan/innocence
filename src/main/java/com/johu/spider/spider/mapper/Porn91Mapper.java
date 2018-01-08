@@ -33,7 +33,7 @@ public interface Porn91Mapper {
     @Update("UPDATE tb_91porn SET status=2,end_time = now() WHERE id=#{id}")
     void finishDownload(Long id);
 
-    @Insert("INSERT INTO tb_91porn(pre_url, title, duration) VALUES (#{preUrl},#{title},#{duration})")
+    @Insert("INSERT IGNORE INTO tb_91porn(code,pre_url, title, duration) VALUES (#{code},#{preUrl},#{title},#{duration})")
     void insert(Porn91 porn91);
 
     @Update("UPDATE tb_91porn SET url=#{url} WHERE id=#{id}")

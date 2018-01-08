@@ -16,7 +16,6 @@ import java.util.concurrent.ThreadPoolExecutor;
 
 @Slf4j
 @Configuration
-@EnableAsync
 public class DownloadThreadPoolConfig {
 
     private int corePoolSize = 10;
@@ -40,4 +39,19 @@ public class DownloadThreadPoolConfig {
         log.debug("线程池装载完毕，离大业又近一步");
         return threadPoolTaskExecutor;
     }
+
+    @Bean
+    public Executor initThreadPool(){
+        ThreadPoolTaskExecutor threadPoolTaskExecutor = new ThreadPoolTaskExecutor();
+        threadPoolTaskExecutor.setCorePoolSize(10);
+        threadPoolTaskExecutor.setMaxPoolSize(10);
+        threadPoolTaskExecutor.setQueueCapacity(5);
+        threadPoolTaskExecutor.setKeepAliveSeconds(60);
+        threadPoolTaskExecutor.setWaitForTasksToCompleteOnShutdown(true);
+        threadPoolTaskExecutor.setRejectedExecutionHandler(new ThreadPoolExecutor.CallerRunsPolicy());
+        threadPoolTaskExecutor.initialize();
+        log.debug("线程池装载完毕，离大业又近一步");
+        return threadPoolTaskExecutor;
+    }
+
 }

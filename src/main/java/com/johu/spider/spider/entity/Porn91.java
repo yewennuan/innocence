@@ -15,8 +15,9 @@ public class Porn91 {
 
     private String preUrl;
 
-
     private String url;
+
+    private String code;
 
     private String title;
 
