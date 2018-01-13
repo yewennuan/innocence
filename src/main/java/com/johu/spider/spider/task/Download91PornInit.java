@@ -4,11 +4,14 @@ import com.johu.spider.spider.entity.Porn91VideoList;
 import com.johu.spider.spider.mapper.Porn91VideoListMapper;
 import com.johu.spider.spider.spider.pipeline.Porn91InitPipeline;
 import com.johu.spider.spider.spider.pipeline.Porn91InitPipeline1;
+import com.johu.spider.spider.spider.processor.Porn91CoreProcessor;
 import com.johu.spider.spider.spider.processor.Porn91InitProcessor;
 import com.johu.spider.spider.spider.processor.Porn91PageProcessor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
+import org.springframework.boot.context.event.ApplicationReadyEvent;
+import org.springframework.context.ApplicationListener;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 import us.codecraft.webmagic.Spider;
@@ -25,7 +28,7 @@ import java.util.concurrent.Executor;
  */
 
 @Component
-public class Download91PornInit implements ApplicationRunner {
+public class Download91PornInit implements ApplicationListener<ApplicationReadyEvent> {
 
     @Autowired
     private Porn91InitProcessor porn91InitProcessor;
@@ -45,11 +48,13 @@ public class Download91PornInit implements ApplicationRunner {
     @Autowired
     private Executor initThreadPool;
 
+    @Autowired
+    private Download91PornCore download91PornCore;
+
     private final String SUFFIX = "&page=";
 
     @Override
-    public void run(ApplicationArguments args) throws Exception {
-
+    public void onApplicationEvent(ApplicationReadyEvent applicationReadyEvent) {
         List<Porn91VideoList> porn91VideoListList = porn91VideoListMapper.selectAll();
         String[] urlArray = porn91VideoListList.stream().map(Porn91VideoList::getUrl).toArray(String[]::new);
         if(urlArray.length==0){
@@ -63,9 +68,9 @@ public class Download91PornInit implements ApplicationRunner {
 //                .addPipeline(porn91InitPipeline)
 //                .run();
 
-        porn91VideoListList.stream().filter(x->x.getPageNo()<=x.getMaxPageNo()).forEach(x->CompletableFuture.runAsync(()->this.initDownloadUrl(x),initThreadPool));
+//        porn91VideoListList.stream().filter(x->x.getPageNo()<=x.getMaxPageNo()).forEach(x->CompletableFuture.runAsync(()->this.initDownloadUrl(x),initThreadPool));
 
-        Thread.currentThread().join();
+        download91PornCore.run();
 
     }
 
@@ -93,4 +98,6 @@ public class Download91PornInit implements ApplicationRunner {
 
 
     }
+
+
 }

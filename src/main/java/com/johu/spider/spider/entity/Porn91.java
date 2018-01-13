@@ -29,6 +29,8 @@ public class Porn91 {
 
     private Date endTime;
 
+    private Integer resetTimes;
+
     private String remark;
 
     private Integer isDeleted;

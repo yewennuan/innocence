@@ -18,11 +18,11 @@ import java.util.concurrent.ThreadPoolExecutor;
 @Configuration
 public class DownloadThreadPoolConfig {
 
-    private int corePoolSize = 10;
+    private int corePoolSize = 5;
 
-    private int maxPoolSize = 30;
+    private int maxPoolSize = 5;
 
-    private int queueCapacity = 10;
+    private int queueCapacity = 5;
 
     private int keepAlive = 200;
 

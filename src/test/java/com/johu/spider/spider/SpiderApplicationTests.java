@@ -28,7 +28,7 @@ public class SpiderApplicationTests {
 
 	@Test
 	public void myBatisTest() {
-		List<Porn91> porn91List = porn91Mapper.getAll();
+		List<Porn91> porn91List = porn91Mapper.getNextTaskList();
 		System.out.println(1);
 	}
 
