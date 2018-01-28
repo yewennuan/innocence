@@ -61,7 +61,7 @@ public class Download91PornInit implements ApplicationListener<ApplicationReadyE
             return;
         }
 
-        //TODO:注释打开
+        //更新最大页数
 //        Spider.create(porn91InitProcessor)
 //                .addUrl(urlArray)
 //                .setDownloader(httpClientDownloader)
@@ -74,6 +74,7 @@ public class Download91PornInit implements ApplicationListener<ApplicationReadyE
 
     }
 
+    //更新爬取初始页
     public void initDownloadUrl(Porn91VideoList porn91VideoList){
         String finalUrl = Optional.ofNullable(porn91VideoList).map(x->x.getUrl()+SUFFIX+x.getPageNo()).orElse("");
         String url = porn91VideoList.getUrl();

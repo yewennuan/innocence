@@ -45,7 +45,10 @@ public class VideoDownloadHelper {
 
 
     public void downloadVideo(String url,String name){
-
+        if(StringUtils.isEmpty(url)) {
+            log.error("片名为{}的网页连接失效");
+            return ;
+        }
         CloseableHttpClient client = HttpClients.createDefault();
         RequestConfig config = null;
         if(StringUtils.isNotBlank(proxyIp) && Objects.nonNull(proxyPort)){
