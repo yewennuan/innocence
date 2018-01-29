@@ -42,7 +42,9 @@ public class Porn91CoreProcessor implements PageProcessor {
             .setSleepTime(1000)
             .setTimeOut(10000)
             .setUserAgent(userAgent)
-            .addHeader("X-Forwarded-For",xForwardedFor);
+//            .addHeader("X-Forwarded-For",xForwardedFor)
+            .addHeader("Proxy-Connection","keep-alive")
+            .addHeader("Cache-Control", "max-age=0");
 
     public static final String DOWNLOAD_URL ="src=\"(.+?)\"";
 

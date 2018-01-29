@@ -1,5 +1,6 @@
 package com.johu.spider.spider.task;
 
+import com.johu.spider.spider.config.HttpClientDownloaderConfig;
 import com.johu.spider.spider.entity.Porn91VideoList;
 import com.johu.spider.spider.mapper.Porn91VideoListMapper;
 import com.johu.spider.spider.spider.pipeline.Porn91InitPipeline;
@@ -67,7 +68,7 @@ public class Download91PornInit implements ApplicationListener<ApplicationReadyE
 //                .setDownloader(httpClientDownloader)
 //                .addPipeline(porn91InitPipeline)
 //                .run();
-
+//
 //        porn91VideoListList.stream().filter(x->x.getPageNo()<=x.getMaxPageNo()).forEach(x->CompletableFuture.runAsync(()->this.initDownloadUrl(x),initThreadPool));
 
         download91PornCore.run();

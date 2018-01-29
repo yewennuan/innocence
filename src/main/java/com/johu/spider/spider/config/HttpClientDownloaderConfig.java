@@ -27,4 +27,10 @@ public class HttpClientDownloaderConfig {
         httpClientDownloader.setProxyProvider(SimpleProxyProvider.from(new Proxy(proxyIp,proxyPort)));
         return httpClientDownloader;
     }
+
+    public HttpClientDownloader getNewInstance(){
+        HttpClientDownloader httpClientDownloader = new HttpClientDownloader();
+        httpClientDownloader.setProxyProvider(SimpleProxyProvider.from(new Proxy(proxyIp,proxyPort)));
+        return httpClientDownloader;
+    }
 }

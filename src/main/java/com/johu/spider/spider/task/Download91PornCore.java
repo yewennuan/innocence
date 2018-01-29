@@ -79,7 +79,8 @@ public class Download91PornCore  {
         List<String> preUrlList = porn91List.stream().map(Porn91::getPreUrl).collect(Collectors.toList());
         if(CollectionUtils.isEmpty(preUrlList)) return Collections.emptyList();
 
-        Spider.create(new Porn91CoreProcessor())
+        Porn91CoreProcessor porn91CoreProcessor = new Porn91CoreProcessor();
+        Spider.create(porn91CoreProcessor)
                 .addUrl(preUrlList.toArray(new String[preUrlList.size()]))
                 .addPipeline(porn91CorePipeline)
                 .setDownloader(httpClientDownloader)
