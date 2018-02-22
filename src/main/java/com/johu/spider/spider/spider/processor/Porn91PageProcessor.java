@@ -25,9 +25,14 @@ public class Porn91PageProcessor implements PageProcessor {
             .setDomain("91porn.com")
             .addHeader("Accept-Language","zh-CN,zh;q=0.8,en;q=0.6")
             .setRetryTimes(3)
-            .setSleepTime(1000)
+            .setSleepTime(10)
             .setTimeOut(10000)
-            .setUserAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.84 Safari/537.36");
+            .setCharset("utf-8")
+            .setUserAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.84 Safari/537.36")
+            .addHeader("Proxy-Connection","keep-alive")
+            .addHeader("Cache-Control", "max-age=0")
+            .setDisableCookieManagement(true);
+
 
     public static final String URL_LIST ="http://91porn\\.com/v\\.php\\?category=\\w+&viewtype=basic[\\s\\S]*";
 

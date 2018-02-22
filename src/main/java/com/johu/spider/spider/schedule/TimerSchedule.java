@@ -13,13 +13,13 @@ import org.springframework.stereotype.Component;
  */
 
 @Slf4j
-@Component
+//@Component
 public class TimerSchedule {
     @Autowired
     private Porn91Mapper porn91Mapper;
 
 
-    @Scheduled(cron = "0 0/10 * * * ?")
+    @Scheduled(cron = "0 0/1 * * * ?")
     public void fixDownloadException(){
         int updateItems = porn91Mapper.updateDirtyData();
         log.info("reset dirty data {}",updateItems);

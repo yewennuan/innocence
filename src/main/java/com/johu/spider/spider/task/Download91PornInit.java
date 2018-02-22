@@ -35,6 +35,10 @@ public class Download91PornInit implements ApplicationListener<ApplicationReadyE
     private Porn91InitProcessor porn91InitProcessor;
 
     @Autowired
+    private Porn91PageProcessor porn91PageProcessor;
+
+
+    @Autowired
     private Porn91VideoListMapper porn91VideoListMapper;
 
     @Autowired
@@ -62,13 +66,13 @@ public class Download91PornInit implements ApplicationListener<ApplicationReadyE
             return;
         }
 
-        //更新最大页数
+//        更新最大页数
 //        Spider.create(porn91InitProcessor)
 //                .addUrl(urlArray)
 //                .setDownloader(httpClientDownloader)
 //                .addPipeline(porn91InitPipeline)
 //                .run();
-//
+
 //        porn91VideoListList.stream().filter(x->x.getPageNo()<=x.getMaxPageNo()).forEach(x->CompletableFuture.runAsync(()->this.initDownloadUrl(x),initThreadPool));
 
         download91PornCore.run();
@@ -84,7 +88,7 @@ public class Download91PornInit implements ApplicationListener<ApplicationReadyE
         if(StringUtils.isEmpty(finalUrl)) return ;
         while (true){
             if(pageNo>maxPageNo) break;
-            Spider.create(new Porn91PageProcessor())
+            Spider.create(porn91PageProcessor)
                     .addUrl(finalUrl)
                     .setDownloader(httpClientDownloader)
                     .addPipeline(porn91InitPipeline1)
