@@ -73,8 +73,10 @@ public class Download91PornInit implements ApplicationListener<ApplicationReadyE
 //                .addPipeline(porn91InitPipeline)
 //                .run();
 
-//        porn91VideoListList.stream().filter(x->x.getPageNo()<=x.getMaxPageNo()).forEach(x->CompletableFuture.runAsync(()->this.initDownloadUrl(x),initThreadPool));
+        //更新爬取初始页
+        porn91VideoListList.stream().filter(x->x.getPageNo()<=x.getMaxPageNo()).forEach(x->CompletableFuture.runAsync(()->this.initDownloadUrl(x),initThreadPool));
 
+        //获取视频动态地址，并下载视频
         download91PornCore.run();
 
     }

@@ -36,7 +36,7 @@ public interface Porn91Mapper {
     })
     Porn91 getByPreUrl(String preUrl);
 
-    @Update("UPDATE tb_91porn SET status=0,begin_time = null,end_time=null,reset_times=reset_times+1 WHERE status =1 and reset_times<3 AND (to_days(now())-to_days(begin_time)>=1) AND is_deleted=0")
+    @Update("UPDATE tb_91porn SET status=0,begin_time = null,end_time=null,reset_times=reset_times+1 WHERE status =1 and reset_times<3 AND url='' AND is_deleted=0")
     int updateDirtyData();
 
     @Update("UPDATE tb_91porn SET status=1,begin_time = now() WHERE id=#{id}")

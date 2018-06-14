@@ -68,7 +68,7 @@ public class Download91PornCore  {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                return ;
+                continue;
             }
 
             downloadDevil(porn91List);

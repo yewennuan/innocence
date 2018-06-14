@@ -28,7 +28,7 @@ CREATE TABLE `tb_91porn_video_list` (
   `max_page_no` int(11) NOT NULL DEFAULT '-1',
   `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO tb_91porn_video_list (code, url, name) VALUES ('hot', 'http://91porn.com/v.php?category=hot&viewtype=basic', '当前最热');
 INSERT INTO tb_91porn_video_list (code, url, name) VALUES ('rp', 'http://91porn.com/v.php?category=rp&viewtype=basic', '最近得分');

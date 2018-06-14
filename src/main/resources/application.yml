@@ -21,3 +21,16 @@ innocence:
     direction: localhost
     entry: 1087
 #    entry: 8888
+
+
+---
+spring:
+  profiles: win
+  datasource:
+        url: jdbc:mysql://23.83.245.164:3306/innocence?useUnicode=true&characterEncoding=utf8&useSSL=false&autoReconnect=true
+        password: yewennuan11.22
+innocence:
+  treasures:
+    location: D:\AE\porn
+    direction: localhost
+    entry: 1080

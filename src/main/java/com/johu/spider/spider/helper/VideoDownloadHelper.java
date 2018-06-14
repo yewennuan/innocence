@@ -57,6 +57,7 @@ public class VideoDownloadHelper {
         }else{
             config = RequestConfig.custom().build();
         }
+//        RequestConfig config = RequestConfig.custom().build();
         HttpGet httpGet = new HttpGet(url);
         httpGet.setConfig(config);
         try {
